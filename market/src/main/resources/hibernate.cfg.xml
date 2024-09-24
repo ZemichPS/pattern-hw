@@ -1,0 +1,41 @@
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Driver -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <!-- Database URL -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/market</property>
+        <!-- Database credentials -->
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">postgres</property>
+        <!-- Hibernate dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!-- Show SQL in console -->
+        <property name="hibernate.show_sql">false</property>
+        <!-- Format SQL -->
+        <property name="hibernate.format_sql">true</property>
+        <!-- Enable automatic schema generation -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- Other settings -->
+        <property name="hibernate.jdbc.batch_size">50</property>
+
+        <!-- Caching properties (optional) -->
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+
+<!--        <property name="hibernate.cache.provider_class">org.hibernate.cache.ehcache.EhCacheProvider</property>-->
+
+
+        <property name="hibernate.physical_naming_strategy">
+            org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        </property>
+        <property name="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</property>
+
+        <!-- Mappings -->
+        <mapping class="model.OrderDetails"/>
+        <mapping class="model.OrderItem"/>
+        <mapping class="model.Customer"/>
+        <mapping class="model.Product"/>
+    </session-factory>
+</hibernate-configuration>
